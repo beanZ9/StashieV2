@@ -146,7 +146,7 @@ internal class ActionsHandler
             if (!stashResult.SkipSwitchTab)
                 yield return SwitchToTab(stashResult.StashIndex);
 
-            yield return new WaitFunctionTimed(() => Main.GameController.IngameState.IngameUi.StashElement.AllInventories[Main.VisibleStashIndex] != null, true, 2000,
+            yield return new WaitFunctionTimed(() => Main.GameController.IngameState.IngameUi.StashElement.VisibleStash != null, true, 2000,
                 $"Error while loading tab, Index: {Main.VisibleStashIndex}"); //maybe replace waittime with Setting option
 
             yield return new WaitFunctionTimed(() => GetTypeOfCurrentVisibleStash() != InventoryType.InvalidInventory, true, 2000,
