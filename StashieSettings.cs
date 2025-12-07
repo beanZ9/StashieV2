@@ -22,7 +22,9 @@ namespace Stashie
         [Menu("Enable Bulk Stash",
             "Uses ctrl+right click to stash multiple currency or fragment items at once.")]
         public ToggleNode EnableBulkStash { get; set; } = new(false);
-        [Menu("Extra Delay", "Delay to wait after each inventory clearing attempt(in ms).")]
+        [Menu("Clearing attempts")]
+        public RangeNode<int> Attempts { get; set; } = new(3, 1, 5);
+        [Menu("Extra Delay", "Delay to wait after each inventory clearing attempt (in ms).\nAlso used as delay between switching stash tabs.")]
         public RangeNode<int> ExtraDelay { get; set; } = new(0, 0, 2000);
 
         [Menu("HoverItem Delay", "Delay used to wait between checks for the Hover item (in ms).")]
