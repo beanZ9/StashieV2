@@ -7,6 +7,7 @@ using System.Collections;
 using System.Linq;
 using System.Windows.Forms;
 using static Stashie.StashieCore;
+using ExileCore.Shared.Helpers;
 
 namespace Stashie.Compartments;
 
@@ -160,7 +161,8 @@ internal class ActionsHandler
 
     public static IEnumerator StashItem(FilterResult stashResult)
     {
-        Input.SetCursorPos(stashResult.ClickPos + Main.ClickWindowOffset);
+        var position = stashResult.ClientRect.ClickRandom() + Main.ClickWindowOffset;
+        Input.SetCursorPos(position);
         yield return new WaitTime(Main.Settings.HoverItemDelay);
         var shiftUsed = false;
 
