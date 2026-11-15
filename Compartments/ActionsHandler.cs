@@ -56,10 +56,8 @@ internal class ActionsHandler
         var travelDistance = Math.Abs(tabIndex - Main.VisibleStashIndex);
         if (travelDistance == 0)
             yield break;
-
+        
         yield return SwitchToTabViaArrowKeys(tabIndex);
-
-        yield return Delay();
     }
 
     public static IEnumerator SwitchToTabViaArrowKeys(int tabIndex, int numberOfTries = 1)
@@ -83,9 +81,10 @@ internal class ActionsHandler
             yield return PressKey(Keys.Right, travelDistance);
         }
 
+        yield return Delay();
+
         if (GetIndexOfCurrentVisibleTab() != tabIndex)
         {
-            yield return Delay(20);
             yield return SwitchToTabViaArrowKeys(tabIndex, numberOfTries + 1);
         }
     }
@@ -95,6 +94,7 @@ internal class ActionsHandler
         for (var i = 0; i < repetitions; i++)
         {
             yield return Input.KeyPress(key);
+            yield return new WaitTime(Main.Settings.StashItemDelay);
         }
     }
 
