@@ -11,9 +11,11 @@ using Vector2N = System.Numerics.Vector2;
 namespace Stashie.Compartments;
 
 /// <summary>
-/// Visualises the ignore matrices (<see cref="StashieSettings.IgnoredCells"/> and
-/// <see cref="StashieSettings.IgnoredExpandedCells"/>) on the inventory and lets a hotkey toggle
-/// the cells under the mouse: the whole footprint of the hovered item, or a single empty slot.
+/// Indicate the ignored intenvory slots (<see cref="StashieSettings.IgnoredCells"/> and
+/// <see cref="StashieSettings.IgnoredExpandedCells"/>) by drawing a small lock icon on 
+/// the inventory itself and allow toggling the state on-the-fly with a hotkey.
+/// The hotkey toggles all slots occupied by the hovered item assuming original state
+/// from the top left one or, in case of no item, toggles only the hovered slot.
 /// </summary>
 internal static class IgnoredCellsOverlay
 {

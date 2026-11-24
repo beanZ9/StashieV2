@@ -147,7 +147,7 @@ public class StashieCore : BaseSettingsPlugin<StashieSettings>
         }
         catch
         {
-            // Overlay is cosmetic; never let a transient read failure break rendering.
+            DebugWindow.LogMsg("Failed to draw ignored cell icons");
         }
     }
 

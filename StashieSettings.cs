@@ -50,7 +50,7 @@ namespace Stashie
         public ToggleNode KeepHighestIDStack { get; set; } = new(false);
 
         [Menu("Show Ignored Cells", "Draws a small lock icon on every inventory slot ticked in the ignore matrix.")]
-        public ToggleNode ShowIgnoredCells { get; set; } = new(true);
+        public ToggleNode ShowIgnoredCells { get; set; } = new(false);
 
         [Menu("Toggle Ignored Cell Hotkey", "Hover an inventory slot and press to tick/untick it in the ignore matrix.\nOver an item, toggles all cells the item covers.")]
         public HotkeyNodeV2 ToggleIgnoredCellHotkey { get; set; } = new(Keys.None);
